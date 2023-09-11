@@ -53,6 +53,11 @@
     .info-card p {
         margin-bottom: 0;
     }
+    .volume-slider {
+    width: 100%; /* or set to a specific pixel value e.g., 200px */
+    margin-top: 10px; /* to give some spacing */
+    }
+
 
 
     </style>
@@ -61,16 +66,23 @@
 </head>
 <body class="whole">
     <div id="particles-js"></div>
-
+    <audio id="player" src="/music.mp3" loop="true" autoplay="true"></audio>
     <div class="center-wrapper">
         <div class="info-card">
             <h2 style="text-align: center;">About Me</h2>
             <p style="text-align: center;">aka A10114</p>
             <p><br>Bye.<br></p>
-            <h5><br>Discord: @A10114<br><br>Telegram: @realA10114<br></h5>
-
+            <h5><br>Discord: @A10114<br><br>Telegram: @realA10114<br><br><br><br>Adjust Music Vol.</h5>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="1" onchange="adjustVolume()">
         </div>
     </div>
+    <script>
+        const player = document.getElementById("player");
+        function adjustVolume() {
+            const volumeSlider = document.getElementById("volumeSlider");
+            player.volume = volumeSlider.value;
+        }
+    </script>   
 
 
     <script src="particles.js"></script>
